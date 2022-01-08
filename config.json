@@ -1,0 +1,9 @@
+{
+    "api_key": "",
+    "api_secret": "",
+    "access_token_key": "",
+    "access_token_secret": "",
+    "date_cutoff": "2000-01-01",
+    "favorite_cutoff": 0,
+    "retweet_cutoff": 0
+}
