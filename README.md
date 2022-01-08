@@ -30,9 +30,6 @@ Edit `config.json` or run `untweet.py config` to configure your settings:
 - `favorite_cutoff` - Save tweets with at least this many favorites (enter 0 to ignore favorites)
 - `retweet_cutoff` - Save tweets with at least this many retweets (enter 0 to ignore retweets)
 
-Create `config.py`:
-`cp config.example.py config.py`
-
 
 ## Usage
 
