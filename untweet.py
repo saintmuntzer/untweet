@@ -196,15 +196,20 @@ def delete():
     i = 0
 
     for d in delete_list:
-        if delete_list[d] == False: # True = already processed/deleted, in case you stop the program and want to resume later
-            click.echo(f"DELETING TWEET: {d}")
-            try:
-                api.destroy_status(d)
-                db.dadd("tweetlist", (d, True))
-                i += 1
-            except:
-                click.secho(f"FAILED TO DELETE TWEET {d}: NOT FOUND OR COULD NOT BE DELETED", fg='bright_yellow')
-                db.dadd("tweetlist", (d, True))
+        try:
+            if delete_list[d] == False:
+                click.echo(f"DELETING TWEET: {d}")
+                try:
+                    api.destroy_status(d)
+                    db.dadd("tweetlist", (d, True))
+                    i += 1
+                except:
+                    click.secho(f"FAILED TO DELETE TWEET {d}: NOT FOUND OR COULD NOT BE DELETED", fg='bright_yellow')
+                    db.dadd("tweetlist", (d, True))
+        except KeyboardInterrupt:
+            click.secho("Aborted by user! Exiting program...", fg='bright_yellow')
+            db.dump()
+            sys.exit()
 
     db.dump()
 
