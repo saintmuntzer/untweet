@@ -40,10 +40,10 @@ def main():
                              yN/                  
                             .o`                   
 
-               TweetDelete'''
+               Untweet.'''
     pass
 
-@main.command("config", short_help="Configure settings for TweetDelete")
+@main.command("config", short_help="Configure settings for Untweet")
 def config():
     with open ("config.json", "r") as read_file:
         settings = json.load(read_file)
@@ -218,7 +218,7 @@ def delete():
 
 @main.command("help", short_help="Display detailed help and instructions")
 def help():
-    click.secho('\nTweetDelete Help & Instructions\n', fg='bright_cyan')
+    click.secho('\nUntweet Help & Instructions\n', fg='bright_cyan')
     click.echo('''See the Github page for easier-to-read instructions.
 
 For this program to work, you'll need the following:
